@@ -4,7 +4,7 @@ FreeCodeCamp's Scientific Computing with Python - Time Calculator
 Write a function named add_time that takes in two required parameters and one optional parameter.
 
 Author: RaShunda Williams
-Completed: 06-17-23
+Completed:
 '''
 
 # imports
@@ -23,20 +23,22 @@ def add_time(start, duration):
     
     # add the duration time to the start time 
     result = start + duration
+    n = result.day
 
     # If the result will be the next day, it should show (next day) after the time.
-    if result.day != start.day:
-        print('Next Day!!!')
+    if n == 2:
+        print(result.strftime('%I:%M %p'), '(next day)')
+    else:
+        print(result.strftime('%I:%M %p'))
 
     # If the result will be more than one day later, it should show (n days later) after the time, where "n" is the number of days later.
-    #days_diff = (result - start).days
+    if n > 2:
+        print(result.strftime('%I:%M %p'), f'({n-1} days later)')
 
-    # if days_diff > 0:
-    #     print(f'{days_diff} days later')
     # If the function is given the optional starting day of the week parameter, then the output should display the day of the week of the result.
     # The day of the week in the output should appear after the time and before the number of days later.
 
     #return result.strftime("%I:%M %p")
     return result
 
-print(add_time('11:00 PM','43:05'))
+add_time('11:59 PM','72:00')
