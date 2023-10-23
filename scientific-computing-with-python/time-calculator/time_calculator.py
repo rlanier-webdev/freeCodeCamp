@@ -17,9 +17,17 @@ start = '11:00 PM'
 duration = '03:05'
 
 # (optional) a starting day of the week, case insensitive
-day = ''
+day_of_week = {
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+}
 
-def add_time(start, duration):
+def add_time(start, duration, day_of_week=None):
     # Parse the time string into a datetime object
     start = datetime.strptime(start,'%I:%M %p')
 
@@ -39,6 +47,6 @@ def add_time(start, duration):
     # If the function is given the optional starting day of the week parameter, then the output should display the day of the week of the result.
     # The day of the week in the output should appear after the time and before the number of days later.
 
-    return result
+    return result.strftime("%I:%M %p")
 
-print(add_time(start,duration))
+add_time('12:59 AM','125:00')
