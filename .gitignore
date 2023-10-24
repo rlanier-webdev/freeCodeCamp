@@ -5,4 +5,7 @@
 .pytest_cache/
 __pycache__/
 
+#JS
+scratchpad.js
+
 venv/
